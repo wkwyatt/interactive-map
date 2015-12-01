@@ -1,0 +1,22 @@
+.blue {
+	fill: #2212ff;
+}
+
+.red {
+	fill: #ff2212;
+}
+
+.open {
+	fill: #cdb280;
+}
+
+#wrappper svg {
+	background-color: #cacaca;
+}
+
+.state-info {
+	color: white;
+	font-size: 12px;
+	text-align: center;
+}
+

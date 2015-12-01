@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="interactiveMap">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script type="text/javascript" src="js/state-objects.js"></script>
+	<script type="text/javascript" src="js/controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="wrapper" ng-controller="interactiveMapCntrl">
+		<svg width="730" height="500">
+			<g class="states" ng-repeat="state in states" click-state>
+				<path class="state {{state.stateColor}}" ng-attr-d="{{state.vector}}" stroke="white"></path>
+				<foreignObject class="state-name" ng-attr-x={{state.nameX}} ng-attr-y={{state.nameY}} width="20" heigth="30">
+					<body>
+						<div class="state-info">
+							{{state.abbr}}
+							<br />
+							{{state.electoralVotes}}
+						</div>
+					</body>
+				</foreignObject>
+			</g>
+		</svg>
+	</div>
+</body>
+</html>
