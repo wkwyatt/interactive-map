@@ -10,13 +10,54 @@
 	fill: #cdb280;
 }
 
-#wrappper svg {
-	background-color: #cacaca;
-}
+#wrapper { text-align: center; }
+#wrappper svg { background-color: #cacaca; }
 
 .state-info {
 	color: white;
 	font-size: 12px;
 	text-align: center;
 }
+
+#votes-wrapper { width: 70%; margin: auto;}
+#bar-header { display: block; overflow: hidden;}
+#republican { float: right;}
+#democrat { float: left;}
+
+#republican span, #democrat span {
+	margin: 0 15px;
+}
+
+#arrow-top {
+	border-top: 10px solid black; 
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+	height: 0;
+	width: 0;
+}
+
+#arrow-bottom {
+	border-bottom: 10px solid black; 
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+	height: 0;
+	width: 0;
+}
+
+#vote-bar {
+	width: 100%;
+	height: 30px;
+	position: relative;
+}
+
+#blue-votes, #open-votes, #red-votes {
+	position: absolute;
+	display: inline-block;
+	height: 100%;
+	/*width: 30px;*/
+}
+
+#blue-votes { background: #2212ff; left: 0;}
+#red-votes { background: #ff2212; right: 0;}
+#open-votes { background: #cdb280;}
 

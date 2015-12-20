@@ -8,6 +8,7 @@ stateMap.directive('clickState', function(){
 			element.bind('click', function(){
 				var newColor = getNewColor($scope.state);
 				$scope.state.stateColor = newColor;
+				$scope.calcVotes();
 				var pathOfTheElement = element[0].querySelector('path');
 				pathOfTheElement.setAttribute('class', newColor);
 			});
@@ -20,6 +21,35 @@ function interactiveMapCntrl($scope){
 	$scope.redStatesTotal = redStates.length;
 	$scope.blueStatesTotal = blueStates.length;
 	$scope.openStatesTotal = openStates.length;
+
+	$scope.stateVoted = function ($state) {
+
+	}
+
+	$scope.calcVotes = function () {
+		$scope.redVotes = 0;
+		$scope.blueVotes = 0;
+		$scope.openVotes = 0;
+
+		for (var i = 0; i < states.length; i++) {
+			if(blueStates[i]){
+				$scope.blueVotes += blueStates[i].electoralVotes;
+			} else if(redStates[i]){
+				$scope.redVotes += redStates[i].electoralVotes;
+			} else if(openStates[i]){
+				$scope.openVotes += openStates[i].electoralVotes;
+			}
+		};
+
+		$scope.blueBar = ($scope.blueVotes / 538) * 100 + "%"; 
+		$scope.openBar = ($scope.openVotes / 538) * 100 + "%";
+		$scope.redBar = ($scope.redVotes / 538) * 100 + "%";
+
+		console.log("=====votes======");
+		console.log($scope.blueVotes);
+	}
+
+	$scope.calcVotes();
 }
 
 function getNewColor(state) {
@@ -29,7 +59,7 @@ function getNewColor(state) {
 	console.log(state);
 	if (state.stateColor == "red") {
 		// add element to appropriate array and remove from old array
-		redStates.splice(redStates[redStates.indexOf(state)], 1);
+		redStates.splice(state.id, 1);
 		blueStates[state.id] = state;
 		console.log("redstates:");
 		console.log(redStates);

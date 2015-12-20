@@ -1,0 +1,22 @@
+
+rob [10:43 AM] 
+Project: Finish the interactivity of the Angular Presidential Map. The criteria is as follows:
+
+You may use your own repo, otherwise start with Rob’s at: https://github.com/rbunch-dc/interactive-map.
+
+You must:
+1.    Remain in Angular. jQuery cannot be used. If you find a case of explicit DOM manipulation, you may ask.
+2.    The final product is attached.
+a.    Include a bar at the top that keeps a running total of all red votes, blue votes, and open votes that scales proportionately. 
+i.    Red: redTotalElectoralVotes / 538 (the number of total electoral votes). For example, 100 electoral votes, should be 100/538 = 18.5% wide
+ii.    Blue: blueTotalElectoralVotes / 538
+iii.    Open: openTotalElectoralVotes / 538
+b.    The bar must update when any state changes color.
+c.    Place the total votes for blue and red above the bar (left and right respectively), place the votes for the “for grab” states in the center of the open section of the graph. 
+d.    Use #c2b280  for the open color.
+e.    Include a reset option map that will reset the map to the initial object.
+f.    Place the tiny states names along the right side and bind them to their respective states.
+i.    Currently, they are in a separate div organized in table format. I advise you to leave them in a separate div rather than trying to put them in the main ng-repeat. Leaving them is easier because they are already not part of the svg, but will require you to bind the box to the state itself. Adding them to the svg will require object work.
+ii.    The names currently drifting in the top left corner must be removed.
+
+This is not easy. It is do-able. Good luck.
