@@ -1,3 +1,4 @@
+body {font-weight: bold;}
 .blue {
 	fill: #2212ff;
 }
@@ -8,6 +9,18 @@
 
 .open {
 	fill: #cdb280;
+}
+
+.blue-box {
+	background: #2212ff;
+}
+
+.red-box {
+	background: #ff2212;
+}
+
+.open-box {
+	background: #cdb280;
 }
 
 #wrapper { text-align: center; }
@@ -80,13 +93,15 @@
     right: 100px;
     top: -100px;
 }
-#small-states-list li { padding: 3px; }
+#small-states-list li { padding: 3px;}
 .small-state {
 	float: left;
 	width: 30px;
 	height: 20px;
-	background: #ff2212;
+	/*background: #ff2212;*/
 	margin-right: 5px;
+	/*font-family: "Arial Black", Gadget, sans-serif;*/
+	color: white;
 }
 
 @media (max-width: 950px) {
@@ -94,4 +109,8 @@
 		margin-top: 141px;
     	right: 0%;
 	}
+}
+
+#reset-btn {
+	margin: auto;
 }
