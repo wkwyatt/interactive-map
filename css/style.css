@@ -31,11 +31,15 @@
 }
 
 #arrow-top {
-	border-top: 10px solid black; 
-	border-right: 10px solid transparent;
-	border-left: 10px solid transparent;
-	height: 0;
-	width: 0;
+	border-top: 10px solid black;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    height: 0;
+    width: 0;
+    float: right;
+    right: -10px;
+    top: -10px;
+    position: relative;
 }
 
 #arrow-bottom {
@@ -44,6 +48,10 @@
 	border-left: 10px solid transparent;
 	height: 0;
 	width: 0;
+	float: right;
+    right: -30px;
+    bottom: -30px;
+    position: relative;
 }
 
 #vote-bar {

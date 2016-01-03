@@ -13,15 +13,20 @@
 <body>
 	<div id="wrapper" ng-controller="interactiveMapCntrl">
 		<div id="votes-wrapper">
-			<div id="arrow-top"></div>
-			<div id="arrow-bottom"></div>
+			
+			
 			<div id="bar-header">
 				<h3 id="democrat" class="vote-titles">Democrat <span ng-bind="blueVotes"></span></h3>
 				<h3 id="republican" class="vote-titles"><span ng-bind="redVotes"></span> Republican</h3>
 			</div>
 			<div id="vote-bar">
-				<div id="blue-votes" ng-style="{width: blueBar}"></div>
-				<div id="open-votes" ng-style="{width: openBar}"><span id="open" class="vote-titles" ng-bind="openVotes"></span></div>
+				<div id="blue-votes" ng-style="{width: blueBar}">
+					<div id="arrow-top"></div>
+					<div id="arrow-bottom"></div>
+				</div>
+				<div id="open-votes" ng-style="{width: openBar}">
+					<span id="open" class="vote-titles" ng-bind="openVotes"></span>
+				</div>
 				<div id="red-votes" ng-style="{width: redBar}"></div>
 			</div>
 		</div>
