@@ -16,17 +16,17 @@
 			<div id="arrow-top"></div>
 			<div id="arrow-bottom"></div>
 			<div id="bar-header">
-				<h3 id="democrat">Democrat <span ng-bind="blueVotes"></span></h3>
-				<h3 id="republican"><span ng-bind="redVotes"></span> Republican</h3>
+				<h3 id="democrat" class="vote-titles">Democrat <span ng-bind="blueVotes"></span></h3>
+				<h3 id="republican" class="vote-titles"><span ng-bind="redVotes"></span> Republican</h3>
 			</div>
 			<div id="vote-bar">
 				<div id="blue-votes" ng-style="{width: blueBar}"></div>
-				<div id="open-votes" ng-style="{width: openBar}"></div>
+				<div id="open-votes" ng-style="{width: openBar}"><span id="open" class="vote-titles" ng-bind="openVotes"></span></div>
 				<div id="red-votes" ng-style="{width: redBar}"></div>
 			</div>
 		</div>
 		<svg width="730" height="500">
-			<g class="states" ng-repeat="state in states" ng-click="calcVotes()" click-state>
+			<g class="states" ng-repeat="state in states" ng-click="stateVoted(state)">
 				<path class="state {{state.stateColor}}" ng-attr-d="{{state.vector}}" stroke="white"></path>
 				<foreignObject class="state-name" ng-attr-x={{state.nameX}} ng-attr-y={{state.nameY}} width="20" heigth="30">
 					<body>
@@ -37,6 +37,16 @@
 						</div>
 					</body>
 				</foreignObject>
+				<ul id="small-states">
+					<li>AB</li>
+					<li>AB</li>
+					<li>AB</li>
+					<li>AB</li>
+					<li>AB</li>
+					<li>AB</li>
+					<li>AB</li>
+					<li>AB</li>
+				</ul>
 			</g>
 		</svg>
 

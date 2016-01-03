@@ -6,24 +6,27 @@ stateMap.directive('clickState', function(){
 	return {
 		link: function($scope, element, iAttrs, controller) {
 			element.bind('click', function(){
-				var newColor = getNewColor($scope.state);
-				$scope.state.stateColor = newColor;
-				$scope.calcVotes();
-				var pathOfTheElement = element[0].querySelector('path');
-				pathOfTheElement.setAttribute('class', newColor);
+				// var newColor = getNewColor($scope.state);
+				// $scope.state.stateColor = newColor;
+				// var pathOfTheElement = element[0].querySelector('path');
+				// pathOfTheElement.setAttribute('class', newColor);
 			});
 		}
 	}
 });
 
-function interactiveMapCntrl($scope){
+function interactiveMapCntrl($scope) {
 	$scope.states = states;
 	$scope.redStatesTotal = redStates.length;
 	$scope.blueStatesTotal = blueStates.length;
 	$scope.openStatesTotal = openStates.length;
 
-	$scope.stateVoted = function ($state) {
-
+	$scope.stateVoted = function($state) {
+		var newColor = getNewColor($state);
+		$state.stateColor = newColor;
+		// var pathOfTheElement = element[0].querySelector('path');
+		// pathOfTheElement.setAttribute('class', newColor);
+		$scope.calcVotes();
 	}
 
 	$scope.calcVotes = function () {
@@ -32,21 +35,30 @@ function interactiveMapCntrl($scope){
 		$scope.openVotes = 0;
 
 		for (var i = 0; i < states.length; i++) {
-			if(blueStates[i]){
-				$scope.blueVotes += blueStates[i].electoralVotes;
-			} else if(redStates[i]){
-				$scope.redVotes += redStates[i].electoralVotes;
-			} else if(openStates[i]){
-				$scope.openVotes += openStates[i].electoralVotes;
+			if(blueStates.indexOf(states[i]) > -1){
+				$scope.blueVotes += blueStates[blueStates.indexOf(states[i])].electoralVotes;
+			} 
+			if(redStates.indexOf(states[i]) > -1){
+				$scope.redVotes += redStates[redStates.indexOf(states[i])].electoralVotes;
+			} 
+			if (openStates.indexOf(states[i]) > -1){
+				$scope.openVotes += openStates[openStates.indexOf(states[i])].electoralVotes;
 			}
-		};
+		}
 
-		$scope.blueBar = ($scope.blueVotes / 538) * 100 + "%"; 
-		$scope.openBar = ($scope.openVotes / 538) * 100 + "%";
-		$scope.redBar = ($scope.redVotes / 538) * 100 + "%";
+		$scope.blueBar = ($scope.blueVotes / 540) * 100 + "%"; 
+		$scope.openBar = ($scope.openVotes / 540) * 100 + "%";
+		$scope.redBar = ($scope.redVotes / 540) * 100 + "%";
 
+		console.log("redstates:");
+		console.log(redStates);
+		console.log("bluestates:");
+		console.log(blueStates);
+		console.log("openstates:");
+		console.log(openStates)
 		console.log("=====votes======");
-		console.log($scope.blueVotes);
+		console.log($scope.openVotes);
+		console.log($scope.openVotes);
 	}
 
 	$scope.calcVotes();
@@ -59,22 +71,18 @@ function getNewColor(state) {
 	console.log(state);
 	if (state.stateColor == "red") {
 		// add element to appropriate array and remove from old array
-		redStates.splice(state.id, 1);
-		blueStates[state.id] = state;
-		console.log("redstates:");
-		console.log(redStates);
-		console.log("bluestates:");
-		console.log(blueStates);
+		redStates.splice(redStates.indexOf(state), 1);
+		blueStates.push(state);
 		return "blue";
 	} else if (state.stateColor == "blue") {
 		// add element to appropriate array and remove from old array
-		blueStates.splice(blueStates[blueStates.indexOf(state)], 1);
-		openStates[state.id] = state;
+		blueStates.splice(blueStates.indexOf(state), 1);
+		openStates.push(state);
 		return "open";
 	} else if (state.stateColor == "open") {
 		// add element to appropriate array and remove from old array
-		openStates.splice(openStates[openStates.indexOf(state)], 1);
-		redStates[state.id] = state;
+		openStates.splice(openStates.indexOf(state), 1);
+		redStates.push(state);
 		return "red";
 	} else  {
 		return console.log("error");

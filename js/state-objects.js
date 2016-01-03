@@ -71,10 +71,10 @@ function State(id,name,abbr,stateColor,electoralVotes,nameX, nameY,vector) {
 	//Set the array up to index the state based on the state object id
     for(i=0; i<states.length; i++){
         if(states[i].stateColor == 'blue'){
-            blueStates[states[i].id] = states[i];
+            blueStates.push(states[i]);
         }else if(states[i].stateColor == 'red'){
-            redStates[states[i].id] = states[i];
+            redStates.push(states[i]);
         }else{
-        	openStates[states[i].id] = states[i];
+        	openStates.push(states[i]);
         }
     }

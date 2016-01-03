@@ -21,11 +21,13 @@
 
 #votes-wrapper { width: 70%; margin: auto;}
 #bar-header { display: block; overflow: hidden;}
-#republican { float: right;}
-#democrat { float: left;}
+#republican { float: right; color: #ff2212; }
+#democrat { float: left; color: #2212ff; }
+#open { color: #fff; }
 
 #republican span, #democrat span {
 	margin: 0 15px;
+	font-size: 32px;
 }
 
 #arrow-top {
@@ -51,13 +53,16 @@
 }
 
 #blue-votes, #open-votes, #red-votes {
-	position: absolute;
-	display: inline-block;
+	position: relative;
+	display: block;
+	float: left;
 	height: 100%;
-	/*width: 30px;*/
 }
 
-#blue-votes { background: #2212ff; left: 0;}
-#red-votes { background: #ff2212; right: 0;}
-#open-votes { background: #cdb280;}
+.vote-titles { font-family: "Arial Black", Gadget, sans-serif; font-size: 18px; }
+#blue-votes { background: #2212ff; }
+#red-votes { background: #ff2212; float: right;}
+#open-votes { background: #cdb280; }
 
+
+#small-states { float: right; }
