@@ -65,4 +65,25 @@
 #open-votes { background: #cdb280; }
 
 
-#small-states { float: right; }
+#small-states-list { 
+	display: inline-block;
+    position: relative;
+    list-style: none;
+    right: 100px;
+    top: -100px;
+}
+#small-states-list li { padding: 3px; }
+.small-state {
+	float: left;
+	width: 30px;
+	height: 20px;
+	background: #ff2212;
+	margin-right: 5px;
+}
+
+@media (max-width: 950px) {
+	#small-states-list {
+		margin-top: 141px;
+    	right: 0%;
+	}
+}
