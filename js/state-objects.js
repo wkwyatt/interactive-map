@@ -79,3 +79,5 @@ function State(id,smallState,name,abbr,stateColor,electoralVotes,nameX, nameY,ve
         	openStates.push(states[i]);
         }
     }
+
+    var defaultStates = JSON.parse(JSON.stringify(states));
