@@ -20,6 +20,8 @@ function interactiveMapCntrl($scope) {
 	$scope.redStatesTotal = redStates.length;
 	$scope.blueStatesTotal = blueStates.length;
 	$scope.openStatesTotal = openStates.length;
+	console.log("head===========");
+	console.log(blueStates.length);
 
 	$scope.stateVoted = function($state) {
 		var newColor = getNewColor($state);
@@ -49,16 +51,36 @@ function interactiveMapCntrl($scope) {
 		$scope.blueBar = ($scope.blueVotes / 540) * 100 + "%"; 
 		$scope.openBar = ($scope.openVotes / 540) * 100 + "%";
 		$scope.redBar = ($scope.redVotes / 540) * 100 + "%";
+	}
 
-		console.log("redstates:");
-		console.log(redStates);
-		console.log("bluestates:");
-		console.log(blueStates);
-		console.log("openstates:");
-		console.log(openStates)
-		console.log("=====votes======");
-		console.log($scope.openVotes);
-		console.log($scope.openVotes);
+	$scope.reset = function(){
+		console.log(blueStates.length);
+		$scope.states = states;
+		redStates = [];
+		blueStates = [];
+		openStates = [];
+
+
+		for(i=0; i<states.length; i++){
+	        if(states[i].stateColor == 'blue'){
+	            blueStates.push(states[i]);
+	        }else if(states[i].stateColor == 'red'){
+	            redStates.push(states[i]);
+	        }else{
+	        	openStates.push(states[i]);
+	        }
+    	}
+    	console.log("=================");
+		console.log(states[0]);
+		console.log(states);
+
+		$scope.redStatesTotal = redStates.length;
+		$scope.blueStatesTotal = blueStates.length;
+		$scope.openStatesTotal = openStates.length;
+		$scope.calcVotes();
+		console.log("=================");
+		console.log(blueStates.length);
+		alert("test");
 	}
 
 	$scope.calcVotes();
